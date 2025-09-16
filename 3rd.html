@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /* General Styles */
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        /* Heading */
+        #p {
+            font-size: 40px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            margin-bottom: 20px;
+        }
+
+        /* Image Container */
+        .g {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            gap: 20px;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        }
+
+        /* Images */
+        .image {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            opacity: 0;
+            transform: translateY(-100%);
+            animation: slideDown 2s ease-out forwards;
+        }
+
+        /* Second Image Appears Slightly Later */
+        .image:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        /* Slide Down Animation */
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 📌 Media Query for Tablets & Small Screens */
+        @media (max-width: 768px) {
+            #p {
+                font-size: 30px;
+            }
+            .image {
+                max-width: 120px;
+            }
+        }
+
+        /* 📌 Media Query for Mobile Phones */
+        @media (max-width: 480px) {
+            #p {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            .g {
+                flex-direction: column; /* Stack images vertically */
+                gap: 10px;
+            }
+            .image {
+                max-width: 100px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="p">
+        Gobar Kha Lijiye
+    </div>
+    <div class="g">
+        <img src="./images.jpg" alt="Err" class="image">
+        <img src="./images.jpg" alt="Err" class="image">
+    </div>
+    <script>
+        
+        let userName = localStorage.getItem("userName");
+        if(userName){
+            document.getElementById("p").textContent = "Gobar kha lijiye " + userName;
+        }
+        else{
+            userName=="";
+            document.getElementById("p").textContent = "."
+        }
+    
+    </script>
+</body>
+</html>

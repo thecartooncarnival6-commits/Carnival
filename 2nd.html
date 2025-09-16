@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+        body {
+            background-color: #F6F686;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Image Containers */
+        .hee, .hee2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        }
+        .hee2 {
+            margin-top: 100px;
+        }
+        .hee img, .hee2 img {
+            max-width: 120px;
+            height: auto;
+        }
+        /* Title */
+        h3 {
+            font-size: 32px;
+            color: #6C6C63;
+            text-align: center;
+        }
+        /* Name Input */
+        .name {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #t {
+            height: 30px;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+            border: 1px solid #999;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        /* Button */
+        .b {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .mybtn {
+            color: white;
+            background-color: grey;
+            border-radius: 8px;
+            width: 100px;
+            height: 35px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .mybtn:hover {
+            width: 110px;
+            height: 40px;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hee, .hee2 {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hee img, .hee2 img {
+                max-width: 100px;
+                margin-bottom: 10px;
+            }
+            h3 {
+                font-size: 28px;
+            }
+            #t {
+                width: 90%;
+            }
+            .mybtn {
+                width: 90px;
+                height: 30px;
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 24px;
+            }
+            .hee img, .hee2 img {
+                max-width: 80px;
+            }
+            #t {
+                width: 95%;
+                font-size: 14px;
+            }
+            .mybtn {
+                width: 80px;
+                height: 28px;
+                font-size: 12px;
+            }
+        }
+    
+</style>
+<body>
+    <div class="hee">
+        <p><img src="./emoji.webp" alt="Err"></p>
+        <p><img src="./emoji.webp" alt="Err"></p>
+    </div>
+    <div>
+        <h3>Enter Your Name Here!</h3>
+    </div>
+    <div class="name">
+        <input type="text" id="t" placeholder="Enter Your Name">
+    </div>
+    <div class="b">
+        <a href="./3rd.html">
+            <button onclick="submitName()" class="mybtn">Submit</button>
+        </a>
+    </div>
+    <div class="hee2">
+        <p><img src="./emoji.webp" alt="Err"></p>
+        <p><img src="./emoji.webp" alt="Err"></p>
+    </div>
+    <script>
+
+        function submitName() {
+            let name = document.getElementById("t").value.trim();
+            if (name == "") {
+                alert("Please Enter your Name!");
+                return;
+            }
+            else {
+                localStorage.setItem("userName", name);
+                window.location.href = "13.html";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
